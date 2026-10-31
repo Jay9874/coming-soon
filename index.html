@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coming Soon · Jay9874</title>
+  <meta name="description" content="Something new is being crafted at jay9874.in. Meanwhile, explore NREGA 2.0 and Musically." />
+  <meta property="og:title" content="Something new is on its way · Jay9874" />
+  <meta property="og:description" content="A new product is being crafted. Meanwhile, explore NREGA 2.0 and Musically." />
+  <meta name="theme-color" content="#07060f" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237c5cff'/%3E%3Cstop offset='1' stop-color='%23ff6ec7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath d='M32 14l4.5 13.5L50 32l-13.5 4.5L32 50l-4.5-13.5L14 32l13.5-4.5z' fill='white'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #07060f;
+      --surface: rgba(255, 255, 255, 0.04);
+      --surface-hover: rgba(255, 255, 255, 0.07);
+      --border: rgba(255, 255, 255, 0.09);
+      --text: #f4f2ff;
+      --muted: #a29fbf;
+      --faint: #6f6b8f;
+      --violet: #7c5cff;
+      --pink: #ff6ec7;
+      --cyan: #3ee6d0;
+      --amber: #ffc857;
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---------- Background ---------- */
+    #stars { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+    .aurora { position: fixed; inset: -20%; z-index: 0; pointer-events: none; filter: blur(90px); opacity: 0.55; }
+    .aurora span {
+      position: absolute; border-radius: 50%;
+      animation: drift 22s ease-in-out infinite alternate;
+    }
+    .aurora span:nth-child(1) { width: 46vmax; height: 46vmax; left: 8%; top: 4%; background: radial-gradient(circle, var(--violet), transparent 65%); }
+    .aurora span:nth-child(2) { width: 38vmax; height: 38vmax; right: 6%; top: 18%; background: radial-gradient(circle, var(--pink), transparent 65%); animation-delay: -7s; animation-duration: 26s; }
+    .aurora span:nth-child(3) { width: 34vmax; height: 34vmax; left: 30%; bottom: 0; background: radial-gradient(circle, var(--cyan), transparent 65%); opacity: 0.6; animation-delay: -12s; animation-duration: 30s; }
+    @keyframes drift {
+      0%   { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(6vmax, -4vmax) scale(1.12); }
+      100% { transform: translate(-5vmax, 5vmax) scale(0.94); }
+    }
+    .grain {
+      position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ---------- Layout ---------- */
+    .wrap {
+      position: relative; z-index: 2;
+      max-width: 1080px; margin: 0 auto;
+      padding: 28px 20px 48px;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 18px; letter-spacing: -0.01em; color: var(--text); text-decoration: none; }
+    .brand-mark {
+      width: 32px; height: 32px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      display: grid; place-items: center;
+      box-shadow: 0 6px 24px -6px rgba(124, 92, 255, 0.7);
+    }
+    .brand-mark svg { width: 16px; height: 16px; }
+    .live-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--muted);
+      padding: 6px 12px; border-radius: 999px;
+      border: 1px solid var(--border); background: var(--surface);
+      backdrop-filter: blur(10px);
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 0 rgba(62, 230, 208, 0.6); animation: ping 2s infinite; }
+    @keyframes ping {
+      0% { box-shadow: 0 0 0 0 rgba(62, 230, 208, 0.55); }
+      80%, 100% { box-shadow: 0 0 0 10px rgba(62, 230, 208, 0); }
+    }
+
+    /* ---------- Hero ---------- */
+    .hero { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 72px 0 56px; }
+    .greeting {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(15px, 2.2vw, 18px); font-weight: 500;
+      color: var(--muted); min-height: 1.6em;
+      margin-bottom: 18px;
+    }
+    .greeting .cursor { display: inline-block; width: 2px; height: 1.05em; background: var(--pink); vertical-align: -0.15em; margin-left: 3px; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--amber);
+      padding: 6px 14px; border-radius: 999px;
+      background: rgba(255, 200, 87, 0.08); border: 1px solid rgba(255, 200, 87, 0.22);
+      margin-bottom: 22px;
+    }
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700; letter-spacing: -0.035em; line-height: 1.02;
+      font-size: clamp(44px, 9vw, 104px);
+      max-width: 14ch;
+    }
+    h1 .grad {
+      background: linear-gradient(100deg, #fff 0%, #d6ccff 30%, var(--pink) 60%, var(--violet) 90%);
+      background-size: 220% 100%;
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: sheen 7s ease-in-out infinite;
+    }
+    @keyframes sheen { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    .sub { margin-top: 22px; max-width: 560px; font-size: clamp(16px, 2vw, 19px); color: var(--muted); }
+    .sub strong { color: var(--text); font-weight: 600; }
+
+    .link-chip {
+      margin-top: 28px;
+      display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center;
+      padding: 10px 16px; border-radius: 14px;
+      background: var(--surface); border: 1px solid var(--border);
+      font-size: 14px; color: var(--muted);
+      backdrop-filter: blur(10px);
+      max-width: 100%;
+    }
+    .link-chip code {
+      font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13.5px;
+      color: var(--text); background: rgba(124, 92, 255, 0.16);
+      padding: 3px 9px; border-radius: 8px; word-break: break-all;
+    }
+
+    /* Build progress */
+    .progress { margin-top: 40px; width: min(440px, 100%); }
+    .progress-head { display: flex; justify-content: space-between; font-size: 13px; color: var(--faint); margin-bottom: 10px; }
+    .progress-head b { color: var(--muted); font-weight: 500; }
+    .bar { height: 6px; border-radius: 999px; background: rgba(255, 255, 255, 0.06); overflow: hidden; }
+    .bar i {
+      display: block; height: 100%; width: 0; border-radius: inherit;
+      background: linear-gradient(90deg, var(--violet), var(--pink), var(--amber));
+      background-size: 200% 100%;
+      animation: flow 3s linear infinite;
+      transition: width 1.8s cubic-bezier(.2, .8, .2, 1);
+    }
+    @keyframes flow { to { background-position: -200% 0; } }
+
+    /* Visitor counter */
+    .counter {
+      margin-top: 36px;
+      display: inline-flex; align-items: center; gap: 16px;
+      padding: 14px 22px 14px 16px; border-radius: 18px;
+      background: linear-gradient(135deg, rgba(124, 92, 255, 0.14), rgba(255, 110, 199, 0.08));
+      border: 1px solid rgba(124, 92, 255, 0.28);
+      opacity: 0; transform: translateY(8px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .counter.show { opacity: 1; transform: none; }
+    .counter-icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(124, 92, 255, 0.22); }
+    .counter-icon svg { width: 22px; height: 22px; stroke: #cfc4ff; }
+    .counter-text { text-align: left; }
+    .counter-num { display: block; font-family: "Space Grotesk", sans-serif; font-size: 30px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+    .counter-label { font-size: 13.5px; color: var(--muted); text-align: left; line-height: 1.4; }
+    .counter-label b { color: var(--text); font-weight: 600; }
+
+    /* ---------- Products ---------- */
+    .section-title { text-align: center; margin-bottom: 8px; font-family: "Space Grotesk", sans-serif; font-size: clamp(24px, 3.4vw, 32px); font-weight: 600; letter-spacing: -0.02em; }
+    .section-sub { text-align: center; color: var(--muted); margin-bottom: 32px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 20px; }
+    .card {
+      position: relative; display: flex; flex-direction: column; gap: 14px;
+      padding: 28px; border-radius: var(--radius);
+      background: var(--surface); border: 1px solid var(--border);
+      color: inherit; text-decoration: none; overflow: hidden;
+      backdrop-filter: blur(14px);
+      transition: transform .35s cubic-bezier(.2, .8, .2, 1), border-color .35s, background .35s;
+      will-change: transform;
+    }
+    .card::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+      background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--glow), transparent 60%);
+      transition: opacity .35s;
+    }
+    .card:hover, .card:focus-visible { border-color: var(--accent); background: var(--surface-hover); transform: translateY(-4px); }
+    .card:hover::before, .card:focus-visible::before { opacity: 1; }
+    .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .card.nrega { --accent: rgba(62, 230, 208, 0.55); --glow: rgba(62, 230, 208, 0.14); }
+    .card.musically { --accent: rgba(255, 110, 199, 0.55); --glow: rgba(255, 110, 199, 0.14); }
+    .card-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; position: relative; }
+    .icon { width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center; }
+    .nrega .icon { background: linear-gradient(135deg, #1fb8a5, #3ee6d0); box-shadow: 0 10px 30px -10px rgba(62, 230, 208, 0.6); }
+    .musically .icon { background: linear-gradient(135deg, #b44cff, #ff6ec7); box-shadow: 0 10px 30px -10px rgba(255, 110, 199, 0.6); }
+    .icon svg { width: 26px; height: 26px; stroke: #0b0a14; }
+    .badge { font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px; }
+    .badge.live { color: var(--cyan); background: rgba(62, 230, 208, 0.1); border: 1px solid rgba(62, 230, 208, 0.25); }
+    .card h3 { font-family: "Space Grotesk", sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; position: relative; }
+    .card p { color: var(--muted); font-size: 15.5px; position: relative; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; position: relative; }
+    .tags span { font-size: 12.5px; color: var(--muted); padding: 4px 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); }
+    .card-foot { margin-top: auto; padding-top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px; position: relative; border-top: 1px solid var(--border); padding-top: 18px; }
+    .url { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13px; color: var(--faint); }
+    .cta { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14.5px; color: var(--text); }
+    .cta svg { width: 16px; height: 16px; transition: transform .3s; }
+    .card:hover .cta svg { transform: translateX(4px); }
+    .explorers { font-size: 12.5px; color: var(--faint); position: relative; min-height: 1.2em; }
+    .explorers b { color: var(--muted); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+    footer { margin-top: 64px; text-align: center; font-size: 13.5px; color: var(--faint); }
+    footer a { color: var(--muted); text-decoration: none; border-bottom: 1px dashed var(--faint); }
+    footer a:hover { color: var(--text); }
+
+    /* Entrance animation */
+    .reveal { opacity: 0; transform: translateY(18px); animation: rise .9s cubic-bezier(.2, .8, .2, 1) forwards; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
+
+    @media (max-width: 560px) {
+      .wrap { padding: 20px 16px 36px; }
+      .hero { padding: 52px 0 40px; }
+      .live-pill .txt-long { display: none; }
+      .card { padding: 22px; }
+      .counter { gap: 12px; padding: 12px 16px 12px 12px; }
+      .counter-num { font-size: 26px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header class="reveal">
+      <a class="brand" href="https://jay9874.in">
+        <span class="brand-mark">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6z"/></svg>
+        </span>
+        jay9874
+      </a>
+      <span class="live-pill"><span class="dot"></span><span class="txt-long">Currently&nbsp;</span>building</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="greeting" aria-live="polite"><span id="greet"></span><span class="cursor"></span></p>
+
+        <span class="eyebrow reveal" style="animation-delay:.15s">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6z"/></svg>
+          Coming soon
+        </span>
+
+        <h1 class="reveal" style="animation-delay:.25s">
+          <span id="headline"><span class="grad">Something big</span> is on its way.</span>
+        </h1>
+
+        <p class="sub reveal" id="sub" style="animation-delay:.4s">
+          You found it early. A brand new product is being crafted line by line, and you'll be among the <strong>first to try it</strong>.
+        </p>
+
+        <div class="link-chip reveal" id="linkChip" style="animation-delay:.5s" hidden>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          You were heading to <code id="linkText"></code>
+        </div>
+
+        <div class="progress reveal" style="animation-delay:.6s">
+          <div class="progress-head"><span id="stage">Warming up the engines…</span><b id="pct">0%</b></div>
+          <div class="bar"><i id="barFill"></i></div>
+        </div>
+
+        <div class="counter" id="counter" aria-live="polite">
+          <span class="counter-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <span class="counter-text">
+            <span class="counter-num" id="count">0</span>
+            <span class="counter-label" id="countLabel" style="display:block"></span>
+          </span>
+        </div>
+      </section>
+
+      <section aria-labelledby="explore">
+        <h2 class="section-title reveal" id="explore" style="animation-delay:.7s">Can't wait? Explore what's live</h2>
+        <p class="section-sub reveal" style="animation-delay:.75s">While the next thing cooks, take these for a spin.</p>
+
+        <div class="grid">
+          <a class="card nrega reveal" style="animation-delay:.85s" href="https://nrega.jay9874.in" target="_blank" rel="noopener" data-product="nrega">
+            <div class="card-top">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg>
+              </span>
+              <span class="badge live"><span class="dot"></span>Live</span>
+            </div>
+            <h3>NREGA 2.0</h3>
+            <p>A new platform for MGNREGA that brings transparency, credibility and convenience to the whole system through one integrated interface.</p>
+            <div class="tags"><span>Transparency</span><span>Workers &amp; Admins</span><span>Integrated</span></div>
+            <span class="explorers" data-explorers="nrega"></span>
+            <div class="card-foot">
+              <span class="url">nrega.jay9874.in</span>
+              <span class="cta">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+
+          <a class="card musically reveal" style="animation-delay:.95s" href="https://musically.jay9874.in" target="_blank" rel="noopener" data-product="musically">
+            <div class="card-top">
+              <span class="icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              </span>
+              <span class="badge live"><span class="dot"></span>Live</span>
+            </div>
+            <h3>Musically</h3>
+            <p>Your soundtrack, reimagined. Discover, play and get lost in music with a clean, fast and beautifully simple listening experience.</p>
+            <div class="tags"><span>Music</span><span>Discover</span><span>Play</span></div>
+            <span class="explorers" data-explorers="musically"></span>
+            <div class="card-foot">
+              <span class="url">musically.jay9874.in</span>
+              <span class="cta">Start listening <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="reveal" style="animation-delay:1.1s">
+      Crafted with curiosity by <a href="https://github.com/Jay9874" target="_blank" rel="noopener">Jay</a> · © <span id="year"></span>
+    </footer>
+  </div>
+
+  <script>
+  (function () {
+    "use strict";
+
+    // ---------- Config ----------
+    var COUNTER_API = "https://abacus.jasoncameron.dev";
+    var COUNTER_NS = "jay9874-coming-soon";
+    var ROOT_DOMAIN = "jay9874.in";
+    // Pretty names for known product slugs. Unknown slugs get title-cased.
+    var KNOWN = { nrega: "NREGA 2.0", musically: "Musically" };
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ---------- Work out which product the visitor was heading to ----------
+    // Preferred: redirect with ?from=<host-or-url> (also accepts ?product= / ?ref= / ?to=).
+    // Fallback: document.referrer if it's another *.jay9874.in subdomain.
+    function parseTarget() {
+      var params = new URLSearchParams(location.search);
+      var raw = params.get("from") || params.get("product") || params.get("ref") || params.get("to");
+      if (!raw && document.referrer) {
+        try {
+          var r = new URL(document.referrer);
+          if (r.hostname !== location.hostname && r.hostname.slice(-ROOT_DOMAIN.length) === ROOT_DOMAIN) raw = r.href;
+        } catch (e) {}
+      }
+      if (!raw) return null;
+      raw = raw.trim();
+      var host = raw, display = raw;
+      try {
+        var u = new URL(/^[a-z]+:\/\//i.test(raw) ? raw : "https://" + raw);
+        host = u.hostname;
+        display = u.hostname + (u.pathname !== "/" ? u.pathname : "");
+      } catch (e) {}
+      host = host.toLowerCase();
+      // Slug: subdomain of jay9874.in, else the first label, else the raw word.
+      var slug = host.slice(-ROOT_DOMAIN.length) === ROOT_DOMAIN ? host.slice(0, -ROOT_DOMAIN.length).replace(/\.$/, "") : host.split(".")[0];
+      slug = (slug.split(".").pop() || "").replace(/[^a-z0-9-]/g, "");
+      if (!slug || slug === "www") return null;
+      var name = KNOWN[slug] || slug.split("-").map(function (w) { return w.charAt(0).toUpperCase() + w.slice(1); }).join(" ");
+      var isUrlish = /\./.test(display);
+      return { slug: slug, name: name, display: isUrlish ? display : null };
+    }
+
+    var target = parseTarget();
+    if (target) {
+      document.title = target.name + " · Coming Soon";
+      document.getElementById("headline").innerHTML = "";
+      var g = document.createElement("span");
+      g.className = "grad";
+      g.textContent = target.name;
+      var h = document.getElementById("headline");
+      h.appendChild(g);
+      h.appendChild(document.createTextNode(" is almost here."));
+      document.getElementById("sub").innerHTML = "";
+      var sub = document.getElementById("sub");
+      sub.appendChild(document.createTextNode("Good things take a little time. "));
+      var s = document.createElement("strong");
+      s.textContent = target.name;
+      sub.appendChild(s);
+      sub.appendChild(document.createTextNode(" is being polished right now, and you're on the early list just by showing up."));
+      if (target.display) {
+        document.getElementById("linkText").textContent = target.display;
+        document.getElementById("linkChip").hidden = false;
+      }
+    }
+
+    // ---------- Typewriter greeting ----------
+    var hr = new Date().getHours();
+    var timeGreet = hr < 5 ? "Burning the midnight oil" : hr < 12 ? "Good morning" : hr < 17 ? "Good afternoon" : "Good evening";
+    var lines = [
+      "नमस्ते, explorer 🙏",
+      timeGreet + ", and welcome!",
+      target ? "You've got great timing ✨" : "You've stumbled onto something ✨"
+    ];
+    var greetEl = document.getElementById("greet");
+    var li = 0, ci = 0, deleting = false;
+    function type() {
+      var chars = Array.from(lines[li]);
+      if (!deleting) {
+        ci++;
+        greetEl.textContent = chars.slice(0, ci).join("");
+        if (ci >= chars.length) {
+          if (li === lines.length - 1) return; // stay on the last line
+          deleting = true;
+          return setTimeout(type, 1500);
+        }
+        setTimeout(type, 55 + Math.random() * 45);
+      } else {
+        ci--;
+        greetEl.textContent = chars.slice(0, ci).join("");
+        if (ci <= 0) { deleting = false; li++; return setTimeout(type, 300); }
+        setTimeout(type, 25);
+      }
+    }
+    setTimeout(type, 400);
+
+    // ---------- Build progress ----------
+    var stages = [
+      [18, "Sketching the big idea…"],
+      [41, "Writing the first lines of code…"],
+      [63, "Polishing pixels…"],
+      [78, "Squashing the last bugs…"],
+      [87, "Adding a sprinkle of magic…"]
+    ];
+    var fill = document.getElementById("barFill"), pct = document.getElementById("pct"), stageEl = document.getElementById("stage");
+    var si = 0, shown = 0;
+    function step() {
+      if (si >= stages.length) return;
+      var t = stages[si++];
+      fill.style.width = t[0] + "%";
+      stageEl.textContent = t[1];
+      var from = shown, to = t[0], start = performance.now();
+      (function anim(now) {
+        var p = Math.min(1, (now - start) / 1200);
+        shown = Math.round(from + (to - from) * p);
+        pct.textContent = shown + "%";
+        if (p < 1) requestAnimationFrame(anim);
+      })(start);
+      setTimeout(step, 2200);
+    }
+    setTimeout(step, 900);
+
+    // ---------- Visitor counter ----------
+    function storeGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+    function storeSet(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+
+    function counterCall(action, key) {
+      return fetch(COUNTER_API + "/" + action + "/" + COUNTER_NS + "/" + key, { cache: "no-store" })
+        .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j }; }); })
+        .then(function (res) {
+          if (res.ok && typeof res.j.value === "number") return res.j.value;
+          if (action === "get") return 0; // key doesn't exist yet
+          throw new Error("counter unavailable");
+        });
+    }
+
+    // Count each browser once per product; repeat visits just read the total.
+    function visit(key) {
+      var seenKey = "cs_seen_" + key;
+      if (storeGet(seenKey)) return counterCall("get", key);
+      return counterCall("hit", key).then(function (v) { storeSet(seenKey, "1"); return v; });
+    }
+
+    function countUp(el, to) {
+      var start = performance.now(), dur = Math.min(1800, 600 + to * 8);
+      (function anim(now) {
+        var p = Math.min(1, (now - start) / dur);
+        var e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(to * e).toLocaleString();
+        if (p < 1) requestAnimationFrame(anim);
+      })(start);
+    }
+
+    var pageKey = target ? "waiting-" + target.slug : "waiting-home";
+    visit(pageKey).then(function (n) {
+      var label = document.getElementById("countLabel");
+      label.innerHTML = "";
+      var b = document.createElement("b");
+      b.textContent = target ? target.name : "the next launch";
+      label.appendChild(document.createTextNode(n === 1 ? "person is waiting for " : "people are waiting for "));
+      label.appendChild(b);
+      label.appendChild(document.createElement("br"));
+      label.appendChild(document.createTextNode(n === 1 ? "You're the very first. Legend." : "You're one of them. Welcome aboard!"));
+      document.getElementById("counter").classList.add("show");
+      countUp(document.getElementById("count"), n);
+    }).catch(function () { /* counter offline: keep it hidden */ });
+
+    // Live product cards: show how many explorers clicked through, count new clicks.
+    document.querySelectorAll("[data-explorers]").forEach(function (el) {
+      var key = "explore-" + el.getAttribute("data-explorers");
+      counterCall("get", key).then(function (n) {
+        if (n > 0) el.innerHTML = "<b>" + n.toLocaleString() + "</b> explorer" + (n === 1 ? "" : "s") + " jumped in from here";
+      }).catch(function () {});
+    });
+    document.querySelectorAll(".card[data-product]").forEach(function (card) {
+      card.addEventListener("click", function () {
+        var key = "explore-" + card.getAttribute("data-product");
+        if (storeGet("cs_seen_" + key)) return;
+        storeSet("cs_seen_" + key, "1");
+        counterCall("hit", key).catch(function () {});
+      });
+      // Spotlight follows the cursor
+      card.addEventListener("pointermove", function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (e.clientX - r.left) + "px");
+        card.style.setProperty("--my", (e.clientY - r.top) + "px");
+      });
+    });
+
+    // ---------- Starfield ----------
+    var canvas = document.getElementById("stars"), ctx = canvas.getContext("2d");
+    var stars = [], dpr = Math.min(window.devicePixelRatio || 1, 2), W, H;
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function resize() {
+      W = canvas.width = innerWidth * dpr; H = canvas.height = innerHeight * dpr;
+      canvas.style.width = innerWidth + "px"; canvas.style.height = innerHeight + "px";
+      var count = Math.round((innerWidth * innerHeight) / 5200);
+      stars = [];
+      for (var i = 0; i < count; i++) stars.push({
+        x: Math.random() * W, y: Math.random() * H,
+        r: (Math.random() * 1.2 + 0.3) * dpr,
+        a: Math.random(), s: Math.random() * 0.015 + 0.004,
+        v: (Math.random() * 0.15 + 0.03) * dpr
+      });
+    }
+    var shooting = null;
+    function frame() {
+      ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < stars.length; i++) {
+        var st = stars[i];
+        st.a += st.s; st.y -= st.v;
+        if (st.y < 0) { st.y = H; st.x = Math.random() * W; }
+        ctx.globalAlpha = 0.25 + Math.abs(Math.sin(st.a)) * 0.6;
+        ctx.fillStyle = "#fff";
+        ctx.beginPath(); ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2); ctx.fill();
+      }
+      if (!shooting && Math.random() < 0.004) {
+        shooting = { x: Math.random() * W * 0.7, y: Math.random() * H * 0.4, len: 0, life: 1 };
+      }
+      if (shooting) {
+        shooting.x += 9 * dpr; shooting.y += 4 * dpr; shooting.life -= 0.02;
+        var grad = ctx.createLinearGradient(shooting.x, shooting.y, shooting.x - 120 * dpr, shooting.y - 53 * dpr);
+        grad.addColorStop(0, "rgba(255,255,255," + shooting.life + ")");
+        grad.addColorStop(1, "rgba(255,255,255,0)");
+        ctx.globalAlpha = 1; ctx.strokeStyle = grad; ctx.lineWidth = 1.6 * dpr;
+        ctx.beginPath(); ctx.moveTo(shooting.x, shooting.y); ctx.lineTo(shooting.x - 120 * dpr, shooting.y - 53 * dpr); ctx.stroke();
+        if (shooting.life <= 0) shooting = null;
+      }
+      ctx.globalAlpha = 1;
+      if (!reduce) requestAnimationFrame(frame);
+    }
+    addEventListener("resize", resize);
+    resize(); frame();
+  })();
+  </script>
+</body>
+</html>
