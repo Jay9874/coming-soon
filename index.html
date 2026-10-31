@@ -99,14 +99,6 @@
     .greeting .cursor { display: inline-block; width: 2px; height: 1.05em; background: var(--pink); vertical-align: -0.15em; margin-left: 3px; animation: blink 1s steps(1) infinite; }
     @keyframes blink { 50% { opacity: 0; } }
 
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--amber);
-      padding: 6px 14px; border-radius: 999px;
-      background: rgba(255, 200, 87, 0.08); border: 1px solid rgba(255, 200, 87, 0.22);
-      margin-bottom: 22px;
-    }
     h1 {
       font-family: "Space Grotesk", sans-serif;
       font-weight: 700; letter-spacing: -0.035em; line-height: 1.02;
@@ -120,8 +112,6 @@
       animation: sheen 7s ease-in-out infinite;
     }
     @keyframes sheen { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-    .sub { margin-top: 22px; max-width: 560px; font-size: clamp(16px, 2vw, 19px); color: var(--muted); }
-    .sub strong { color: var(--text); font-weight: 600; }
 
     .link-chip {
       margin-top: 28px;
@@ -269,18 +259,9 @@
       <section class="hero">
         <p class="greeting" aria-live="polite"><span id="greet"></span><span class="cursor"></span></p>
 
-        <span class="eyebrow reveal" style="animation-delay:.15s">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.6 7.4L22 12l-7.4 2.6L12 22l-2.6-7.4L2 12l7.4-2.6z"/></svg>
-          Coming soon
-        </span>
-
         <h1 class="reveal" style="animation-delay:.25s">
           <span id="headline"><span class="grad">Something new</span> is coming soon</span>
         </h1>
-
-        <p class="sub reveal" id="sub" style="animation-delay:.4s">
-          You found it early. A brand new product is being crafted line by line, and you'll be among the <strong>first to try it</strong>.
-        </p>
 
         <div class="link-chip reveal" id="linkChip" style="animation-delay:.5s" hidden>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
@@ -403,13 +384,6 @@
       var h = document.getElementById("headline");
       h.appendChild(g);
       h.appendChild(document.createTextNode(" is coming soon"));
-      document.getElementById("sub").innerHTML = "";
-      var sub = document.getElementById("sub");
-      sub.appendChild(document.createTextNode("Good things take a little time. "));
-      var s = document.createElement("strong");
-      s.textContent = target.name;
-      sub.appendChild(s);
-      sub.appendChild(document.createTextNode(" is being polished right now, and you're on the early list just by showing up."));
       if (target.display) {
         document.getElementById("linkText").textContent = target.display;
         document.getElementById("linkChip").hidden = false;
